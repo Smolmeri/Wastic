@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Wastic",
-    "slug": "wastic-0.1",
+    "slug": "wastic0.1",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [

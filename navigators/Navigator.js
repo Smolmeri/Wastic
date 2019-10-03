@@ -56,7 +56,7 @@ const StackNavigator = createStackNavigator(
     },
 );
 
-const Navigator = createSwtichNavigator(
+const Navigator = createSwitchNavigator(
     {
         AuthLoading: AuthLoading,
         App: StackNavigator,

@@ -12,18 +12,22 @@ import {
     Label,
     Title,
 } from 'native-base';
+import PropTypes from 'prop-types';
 import FormTextInput from '../components/FormTextInput';
+import mediaAPI from '../hooks/ApiHooks';
+import Constants from 'expo-constants';
 
 const Login = (props) => {
     const [formToggle, setFormToggle] = useState(true);
     const {
-        inpouts,
+        inputs,
         errors,
         handleLoginUsernameChange,
         handleLoginPasswordChange,
         handleUsernameChange,
         handlePasswordChange,
         handleConfirmChange,
+        handleEmailChange,
         handleFullnameChange,
         validateOnSend,
         checkUserAvailable,
@@ -41,7 +45,7 @@ const Login = (props) => {
                 <Form>
                     <Text>Login</Text>
 
-                    <FormItem floatingLabel>
+                    {/* <FormItem floatingLabel> */}
                         <FormTextInput
                             autoCapitalize='none'
                             value={inputs.username}
@@ -49,8 +53,8 @@ const Login = (props) => {
                             onChangeText={handleLoginUsernameChange}
                             error={errors.username}
                         />
-                    </FormItem>
-                    <FormItem floatingLabel>
+                    {/* </FormItem> */}
+                    {/* <FormItem floatingLabel> */}
                         <FormTextInput
                             autoCapitalize='none'
                             value={inputs.password}
@@ -58,9 +62,10 @@ const Login = (props) => {
                             onChangeText={handleLoginPasswordChange}
                             error={errors.password}
                         />
-                    </FormItem>
+                    {/* </FormItem> */}
 
                     <Button
+                        
                         title='Login'
                         onPress={() => {
                             signInAsync(inputs, props);
