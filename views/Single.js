@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import AImage from '../components/AsyncImage';
 import { Container, Content, Text, Card, CardItem, H2, Body, Button } from 'native-base';
 import mediaAPI from '../hooks/ApiHooks';
+import { AsyncStorage } from 'react-native';
 
 const Single = (props) => {
+    const getToken = async () => {
+        const userToken = await AsyncStorage.getItem('userToken');
+
+        console.log('token', userToken);
+        props.navigation.navigate(userToken ? 'Home' : 'Logout');
+    }
+    useEffect(() => {
+        getToken();
+    }, []);
+
     const { navigation } = props;
     console.log('Singel navi', navigation.state);
     const file = navigation.state.params.file;
@@ -36,9 +47,7 @@ const Single = (props) => {
                         <Text>{file.description}</Text>
                     </CardItem>
                 </Card>
-                <Button onPress={() => {
-                    props.navigation.navigate('Logout')
-                }}>
+                <Button onPress={getToken}>
                     <Text>Reserve</Text>
                 </Button>
             </Content>
