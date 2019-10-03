@@ -8,13 +8,10 @@ import { AsyncStorage } from 'react-native';
 const Single = (props) => {
     const getToken = async () => {
         const userToken = await AsyncStorage.getItem('userToken');
-
-        console.log('token', userToken);
         props.navigation.navigate(userToken ? 'Home' : 'Logout');
+        return getToken();
     }
-    useEffect(() => {
-        getToken();
-    }, []);
+    
 
     const { navigation } = props;
     console.log('Singel navi', navigation.state);
