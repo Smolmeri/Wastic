@@ -21,12 +21,12 @@ const Login = (props) => {
         errors,
         handleLoginUsernameChange,
         handleLoginPasswordChange,
-        handleUSernameChange,
+        handleUsernameChange,
         handlePasswordChange,
         handleConfirmChange,
         handleFullnameChange,
         validateOnSend,
-        chechUserAvailable,
+        checkUserAvailable,
     } = useSignUpForm();
 
     const { signInAsync, registerAsync } = mediaAPI();
@@ -55,7 +55,7 @@ const Login = (props) => {
                             autoCapitalize='none'
                             value={inputs.password}
                             placeholder='password'
-                            onChangeText={handleLoginUsernameChange}
+                            onChangeText={handleLoginPasswordChange}
                             error={errors.password}
                         />
                     </FormItem>
@@ -134,11 +134,12 @@ const Login = (props) => {
                 </Form>
             }
         </Container>
-    )
+    );
+}
 
 
-    Login.propTypes = {
-        navigation: PropTypes.object,
-    };
+Login.propTypes = {
+    navigation: PropTypes.object,
+};
 
-    export default Login;
+export default Login;
