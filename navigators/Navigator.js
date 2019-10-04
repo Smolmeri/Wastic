@@ -63,7 +63,7 @@ const Navigator = createSwitchNavigator(
         Auth: Login,
     },
     {
-        initialRouteName: 'App',
+        initialRouteName: 'AuthLoading',
     }
 );
 

@@ -6,11 +6,19 @@ import mediaAPI from '../hooks/ApiHooks';
 import { AsyncStorage } from 'react-native';
 
 const Single = (props) => {
-    const getToken = async () => {
+/*     const getToken = async () => {
         const userToken = await AsyncStorage.getItem('userToken');
-        props.navigation.navigate(userToken ? 'Home' : 'Logout');
+        console.log('Get Token', userToken);
+        if (!userToken) {
+            props.navigation.navigate('Logout');
+            console.log('Logout here');
+        } else {
+            props.navigation.navigate('Home');
+            console.log('Home here');
+        };
+        console.log('getToken Here')
         return getToken();
-    }
+    } */
     
 
     const { navigation } = props;

@@ -2,7 +2,7 @@ import {useState, useContext} from 'react';
 import mediaAPI from './ApiHooks';
 import {MediaContext} from '../contexts/MediaContext';
 
-const {uploadFile, reloadAllMedia} = mediaAPI();
+const {uploadFile, reloadAllMedia, getTags} = mediaAPI();
 
 const useUploadForm = () => {
   const initInputs = {title: '', description: ''};
@@ -46,7 +46,12 @@ const useUploadForm = () => {
     fd.append('description', inputs.description);
     uploadFile(fd).then((response) => {
       console.log('upl resp', response);
+      console.log('First element', response.file_id);
       // reset media because silly refresh problems
+      setTimeout(() => {
+        getTags(response.file_id);
+      }, 2000);
+      console.log('Tag added HERE !!', response.file_id);
       setMedia([]);
       setTimeout(() => {
         reloadAllMedia(setMedia, setMyMedia);

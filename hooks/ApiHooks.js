@@ -70,7 +70,7 @@ const mediaAPI = () => {
     const {media, setMedia} = useContext(MediaContext);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-      fetchGetUrl(apiUrl + 'media').then((json) => {
+      fetchGetUrl(apiUrl + 'tags/wastic').then((json) => {
         setMedia(json);
         setLoading(false);
       });
@@ -79,7 +79,7 @@ const mediaAPI = () => {
   };
 
   const reloadAllMedia = (setMedia, setMyMedia) => {
-    fetchGetUrl(apiUrl +'media').then((json) => {
+    fetchGetUrl(apiUrl +'tags/wastic').then((json) => {
       setMedia(json);
     });
     fetchGetUrl(apiUrl +'media/user').then((json) => {
@@ -206,6 +206,25 @@ const mediaAPI = () => {
     });
   };
 
+  const getTags = async (id) => {
+    console.log('Tags Func Here',id)
+    const userToken = await AsyncStorage.getItem('userToken');
+    console.log('Valid Token', userToken);
+    const response = await fetch(apiUrl + 'tags/', {
+      method: 'POST',
+      headers: {
+        'x-access-token': userToken,
+      },
+      parameters: {
+        "file_id": id,
+        "tag": "wastic",
+      }
+    });
+    let json = await response.text();
+    console.log('Solution here ', json);
+    return json;
+  };
+
   return {
     getAllMedia,
     getThumbnail,
@@ -219,6 +238,7 @@ const mediaAPI = () => {
     reloadAllMedia,
     getAllMyMedia,
     deleteMedia,
+    getTags,
   };
 };
 

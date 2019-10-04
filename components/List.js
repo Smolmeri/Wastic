@@ -19,7 +19,8 @@ const useFetch = (url) => {
 };
 
 const List = (props) => {
-  const [media, loading] = useFetch('http://media.mw.metropolia.fi/wbma/media/');
+  // VV Changed from /media
+  const [media, loading] = useFetch('http://media.mw.metropolia.fi/wbma/tags/wastic');
   return (
     <Container>
       <BaseList
