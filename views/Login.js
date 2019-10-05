@@ -11,6 +11,7 @@ import {
     Input,
     Label,
     Title,
+    Content,
 } from 'native-base';
 import PropTypes from 'prop-types';
 import FormTextInput from '../components/FormTextInput';
@@ -42,10 +43,11 @@ const Login = (props) => {
                 </Body>
             </Header>
             {formToggle &&
-                <Form>
-                    <Text>Login</Text>
+                <Content>
+                    <Form>
+                        <Text>Login</Text>
 
-                    {/* <FormItem floatingLabel> */}
+                        {/* <FormItem floatingLabel> */}
                         <FormTextInput
                             autoCapitalize='none'
                             value={inputs.username}
@@ -53,8 +55,8 @@ const Login = (props) => {
                             onChangeText={handleLoginUsernameChange}
                             error={errors.username}
                         />
-                    {/* </FormItem> */}
-                    {/* <FormItem floatingLabel> */}
+                        {/* </FormItem> */}
+                        {/* <FormItem floatingLabel> */}
                         <FormTextInput
                             autoCapitalize='none'
                             value={inputs.password}
@@ -62,81 +64,85 @@ const Login = (props) => {
                             onChangeText={handleLoginPasswordChange}
                             error={errors.password}
                         />
-                    {/* </FormItem> */}
+                        {/* </FormItem> */}
 
-                    <Button
-                        
-                        title='Login'
-                        onPress={() => {
-                            signInAsync(inputs, props);
-                        }}
-                    />
+                        <Button
+                            onPress={() => {
+                                signInAsync(inputs, props);
+                            }}>
+                            <Text>Login</Text>
+                        </Button>
 
-                    <Text>sign up here</Text>
+                        <Text>sign up here</Text>
 
-                    <Button
-                        title='Register'
-                        onPress={() => {
-                            setFormToggle(false);
-                        }}
-                    />
-                </Form>
+                        <Button
+                            onPress={() => {
+                                setFormToggle(false);
+                            }}>
+                            <Text>Register</Text>
+                        </Button>
+                    </Form>
+                </Content>
             }
 
             {!formToggle &&
-                <Form>
-                    <Text>Register</Text>
+                <Content>
+                    <Form>
+                        <Text>Register</Text>
 
-                    <FormTextInput
-                        autoCapitalize='none'
-                        value={inputs.username}
-                        placeholder='username'
-                        onChangeText={handleUsernameChange}
-                        onEndEditing={checkUserAvailable}
-                        error={errors.username}
-                    />
-                    <FormTextInput
-                        autoCapitalize='none'
-                        value={inputs.password}
-                        placeholder='password'
-                        onChangeText={handlePasswordChange}
-                        error={errors.password}
-                    />
-                    <FormTextInput
-                        autoCapitalize='none'
-                        value={inputs.confirm}
-                        placeholder='confirm password'
-                        onChangeText={handleConfirmChange}
-                        error={errors.confirm}
-                    />
-                    <FormTextInput
-                        autoCapitalize='none'
-                        value={inputs.email}
-                        placeholder='email'
-                        onChangeText={handleEmailChange}
-                        error={errors.email}
-                    />
-                    <FormTextInput
-                        value={inputs.fullname}
-                        placeholder='fullname'
-                        onChangeText={handleFullnameChange}
-                    />
-                    <Button
-                        title='Register!'
-                        onPress={() => {
-                            if (validateOnSend()) {
-                                registerAsync(inputs, props);
-                            }
-                        }}
-                    />
-                    <Text>or</Text>
-                    <Button
-                        title='Login'
-                        onPress={() => {
-                            setFormToggle(true);
-                        }}
-                    />
-                </Form>
+                        <FormTextInput
+                            autoCapitalize='none'
+                            value={inputs.username}
+                            placeholder='username'
+                            onChangeText={handleUsernameChange}
+                            onEndEditing={checkUserAvailable}
+                            error={errors.username}
+                        />
+                        <FormTextInput
+                            autoCapitalize='none'
+                            value={inputs.password}
+                            placeholder='password'
+                            onChangeText={handlePasswordChange}
+                            error={errors.password}
+                        />
+                        <FormTextInput
+                            autoCapitalize='none'
+                            value={inputs.confirm}
+                            placeholder='confirm password'
+                            onChangeText={handleConfirmChange}
+                            error={errors.confirm}
+                        />
+                        <FormTextInput
+                            autoCapitalize='none'
+                            value={inputs.email}
+                            placeholder='email'
+                            onChangeText={handleEmailChange}
+                            error={errors.email}
+                        />
+                        <FormTextInput
+                            value={inputs.fullname}
+                            placeholder='fullname'
+                            onChangeText={handleFullnameChange}
+                        />
+                        <Button
+                            onPress={() => {
+                                if (validateOnSend()) {
+                                    registerAsync(inputs, props);
+                                }
+                            }}>
+                            <Text>Register</Text>
+                        </Button>
+
+                        <Text>or</Text>
+
+                        <Button
+                            onPress={() => {
+                                setFormToggle(true);
+                            }}>
+                            <Text>Login</Text>
+                        </Button>
+                    </Form>
+                </Content>
             }
         </Container>
     );
