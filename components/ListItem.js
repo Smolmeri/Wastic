@@ -22,6 +22,7 @@ const ListItem = (props) => {
       onPress={
         () => {
           props.navigation.navigate('Single', { file: props.singleMedia });
+          console.log('what is happening');
         }
       }
     >

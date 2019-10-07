@@ -1,29 +1,16 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import AImage from '../components/AsyncImage';
 import { Container, Content, Text, Card, CardItem, H2, Body, Button } from 'native-base';
 import mediaAPI from '../hooks/ApiHooks';
-import { AsyncStorage } from 'react-native';
+import { MediaContext } from '../contexts/MediaContext';
 
-const Single = (props) => {
-     const getToken = async () => {
-        const userToken = await AsyncStorage.getItem('userToken');
-        console.log('Get Token', userToken);
-        if (!userToken) {
-            props.navigation.navigate('Login');
-            console.log('Login here');
-        } else {
-            props.navigation.navigate('Reserved', { file: file  });
-            console.log('Reserved here');
-        };
-        console.log('getToken Here')
-    };
-    
-
+const Reserved = (props) => {
     const { navigation } = props;
-    console.log('Singel navi', navigation.state);
+    console.log('Reserved navi', navigation.state);
     const file = navigation.state.params.file;
     const { getUserInfo } = mediaAPI();
+    const { user } = useContext(MediaContext);
     return (
         <Container>
             <Content>
@@ -50,9 +37,21 @@ const Single = (props) => {
                     <CardItem>
                         <Text>{file.description}</Text>
                     </CardItem>
+                    <CardItem>
+                        <Text>Thanks for choosing to save the planet! Below is the sellers contact information.</Text>
+                    </CardItem>
+                    <CardItem>
+                        <Text>User: {getUserInfo(file.user_id).username}</Text>
+                    </CardItem>
+                    <CardItem>
+                        <Text>Address: Mannerheimintie 94</Text>
+                    </CardItem>
+                    <CardItem>
+                        <Text>Contact: {user.email} </Text>
+                    </CardItem>
                 </Card>
-                <Button onPress={getToken}>
-                    <Text>Reserve</Text>
+                <Button>
+                    <Text>Cancel</Text>
                 </Button>
             </Content>
         </Container>
@@ -60,10 +59,9 @@ const Single = (props) => {
 };
 
 
-Single.propTypes = {
+Reserved.propTypes = {
     navigation: PropTypes.object,
     file: PropTypes.object,
-    singleMedia: PropTypes.object,
 };
 
-export default Single;
+export default Reserved;

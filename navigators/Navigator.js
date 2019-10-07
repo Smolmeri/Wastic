@@ -10,6 +10,7 @@ import Upload from '../views/Upload';
 import AuthLoading from '../views/AuthLoading';
 import Login from '../views/Login';
 import MyFiles from '../views/MyFiles';
+import Reserved from '../views/Reserved';
 
 const TabNavigator = createBottomTabNavigator(
     {
@@ -52,6 +53,9 @@ const StackNavigator = createStackNavigator(
         },
         MyFiles: {
             screen: MyFiles,
+        },
+        Reserved: {
+            screen: Reserved,
         },
     },
 );
