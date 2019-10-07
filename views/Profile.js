@@ -82,9 +82,24 @@ const Profile = (props) => {
               }>
                 <Icon name="log-in" />
               </Button>
-            </CardItem>
-          </Card>
-        }
+            </Left>
+          </CardItem>
+        </Card>
+      }
+      {!user &&
+        <Card>
+          <CardItem>
+            <Text>Log in or Register here</Text>
+          </CardItem>
+          <CardItem>
+            <Button onPress={() => {
+              props.navigation.navigate('Login');
+            }}>
+              <Icon name="log-in" />
+            </Button>
+          </CardItem>
+        </Card>
+      }
       </Content>
     </Container >
   );
