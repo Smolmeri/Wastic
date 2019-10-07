@@ -63,12 +63,28 @@ const Profile = (props) => {
                     props.navigation.navigate('MyFiles');
                   }
                 }>
-                <Icon name="home" />
+                  <Icon name="home" />
+                </Button>
+              </Left>
+            </CardItem>
+          </Card>
+        }
+        {!user &&
+          <Card>
+            <CardItem>
+              <Text>Login or Register here!</Text>
+            </CardItem>
+            <CardItem>
+              <Button onPress={
+                () => {
+                  props.navigation.navigate('Login');
+                }
+              }>
+                <Icon name="log-in" />
               </Button>
-            </Left>
-          </CardItem>
-        </Card>
-      }
+            </CardItem>
+          </Card>
+        }
       </Content>
     </Container >
   );

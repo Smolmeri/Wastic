@@ -47,7 +47,7 @@ const StackNavigator = createStackNavigator(
         Single: {
             screen: Single,
         },
-        Logout: {
+        Login: {
             screen: Login,
         },
         MyFiles: {
@@ -63,7 +63,7 @@ const Navigator = createSwitchNavigator(
         Auth: Login,
     },
     {
-        initialRouteName: 'AuthLoading',
+        initialRouteName: 'App',
     }
 );
 
