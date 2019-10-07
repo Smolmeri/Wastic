@@ -214,11 +214,12 @@ const mediaAPI = () => {
       method: 'POST',
       headers: {
         'x-access-token': userToken,
+        'Content-Type': 'application/json'
       },
-      parameters: {
+      body:JSON.stringify( {
         "file_id": id,
         "tag": "wastic",
-      }
+      } )
     });
     let json = await response.text();
     console.log('Solution here ', json);
