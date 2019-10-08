@@ -47,7 +47,7 @@ const Reserved = (props) => {
                         <Text>Address: Mannerheimintie 94</Text>
                     </CardItem>
                     <CardItem>
-                        <Text>Contact: {user.email} </Text>
+                        <Text>Contact: {getUserInfo(file.user_id).email} </Text>
                     </CardItem>
                 </Card>
                 <Button>
