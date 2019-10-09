@@ -17,6 +17,7 @@ const Upload = (props) => {
     inputs,
     handleTitleChange,
     handleDescriptionChange,
+    handleTagChange,
     handleUpload,
     resetForm,
   } = useUploadForm();
@@ -56,48 +57,52 @@ const Upload = (props) => {
   }, []);
 
   return (
-    <Container>
-        <Content>
-          {file.type === 'image' &&
-            <Image
-              source={{ uri: file.uri }}
-              style={{ width: 200, height: 200 }}
-            />
-          }
-          {file.type === 'video' &&
-            <Video
-              source={{ uri: file.uri }}
-              style={{ width: 200, height: 200 }}
-              useNativeControls={true}
-            />
-          }
-          {loading && <Spinner />}
-          {!loading && <Form>
-            <FormTextInput
-              value={inputs.title}
-              placeholder='title'
-              onChangeText={handleTitleChange}
-            />
-            <FormTextInput
-              value={inputs.description}
-              placeholder='description'
-              onChangeText={handleDescriptionChange}
-            />
-            <Button block
-              onPress={pickImage}
-            >
-              <Text>Choose file</Text>
-            </Button>
-            {file.uri && inputs.title.length > 3 && (inputs.description.length == 0 || inputs.description.length > 5) &&
-              <Button block
-                onPress={() => {
-                  handleUpload(file, setLoading, props.navigation);
-                }}
-              >
-                <Text>Upload file</Text>
-              </Button>
-            }
 
+    <Content>
+      {file.type === 'image' &&
+        <Image
+          source={{uri: file.uri}}
+          style={{width: 200, height: 200}}
+        />
+      }
+      {file.type === 'video' &&
+        <Video
+          source={{uri: file.uri}}
+          style={{width: 200, height: 200}}
+          useNativeControls={true}
+        />
+      }
+      {loading && <Spinner />}
+      {!loading && <Form>
+        <FormTextInput
+          value={inputs.title}
+          placeholder='title'
+          onChangeText={handleTitleChange}
+        />
+        <FormTextInput
+          value={inputs.description}
+          placeholder='description'
+          onChangeText={handleDescriptionChange}
+        />
+        <FormTextInput
+          value={inputs.tags}
+          placeholder="Vegetarian"
+          onChangeText={handleTagChange}
+        />
+        <Button block
+          onPress={pickImage}
+        >
+          <Text>Choose file</Text>
+        </Button>
+        {file.uri && inputs.title.length > 3 && (inputs.description.length == 0 || inputs.description.length > 5) &&
+        <Button block
+          onPress={() => {
+            handleUpload(file, setLoading, props.navigation);
+          }}
+        >
+          <Text>Upload file</Text>
+        </Button>
+        }
             <Button block
               onPress={() => resetForm(setFile)}
             >

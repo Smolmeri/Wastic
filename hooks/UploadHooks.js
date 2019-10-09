@@ -2,10 +2,10 @@ import {useState, useContext} from 'react';
 import mediaAPI from './ApiHooks';
 import {MediaContext} from '../contexts/MediaContext';
 
-const {uploadFile, reloadAllMedia, getTags} = mediaAPI();
+const {uploadFile, reloadAllMedia, getTags, appendTag} = mediaAPI();
 
 const useUploadForm = () => {
-  const initInputs = {title: '', description: ''};
+  const initInputs = {title: '', description: '', tags: '',};
   const [inputs, setInputs] = useState(initInputs);
   const {setMedia, setMyMedia} = useContext(MediaContext);
   // upload form event handlers
@@ -19,6 +19,13 @@ const useUploadForm = () => {
     setInputs((inputs) => ({
       ...inputs,
       description: text,
+    }));
+  };
+
+  const handleTagChange = (text) => {
+    setInputs((inputs) => ({
+      ...inputs,
+      tags: text,
     }));
   };
 
@@ -44,14 +51,19 @@ const useUploadForm = () => {
     fd.append('file', {uri: file.uri, name: filename, type});
     fd.append('title', inputs.title);
     fd.append('description', inputs.description);
+    // fd.append('tags', inputs.tags);
     uploadFile(fd).then((response) => {
       console.log('upl resp', response);
       console.log('First element', response.file_id);
       // reset media because silly refresh problems
       setTimeout(() => {
-        getTags(response.file_id);
+        getTags(response.file_id, inputs.tags);
+      }, 2000);
+      setTimeout(() => {
+        appendTag(response.file_id, inputs.tags);
       }, 2000);
       console.log('Tag added HERE !!', response.file_id);
+      console.log('New Tag added HERE !!', appendTag());
       setMedia([]);
       setTimeout(() => {
         reloadAllMedia(setMedia, setMyMedia);
@@ -71,6 +83,7 @@ const useUploadForm = () => {
   return {
     handleTitleChange,
     handleDescriptionChange,
+    handleTagChange,
     handleUpload,
     inputs,
     resetForm,
