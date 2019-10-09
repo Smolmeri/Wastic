@@ -54,18 +54,22 @@ const Profile = (props) => {
               </Body>
             </CardItem>
             <CardItem>
-              <Left>
+              <Body>
                 <Button onPress={signOutAsync}>
+                  <Text>Sign out</Text>
                   <Icon name="log-out" />
                 </Button>
+              </Body>
+              <Body>
                 <Button onPress={
                   () => {
                     props.navigation.navigate('MyFiles');
                   }
                 }>
+                  <Text>My Products</Text>
                   <Icon name="home" />
                 </Button>
-              </Left>
+              </Body>
             </CardItem>
           </Card>
         }
@@ -75,13 +79,15 @@ const Profile = (props) => {
               <Text>Login or Register here!</Text>
             </CardItem>
             <CardItem>
-              <Button onPress={
-                () => {
-                  props.navigation.navigate('Login');
-                }
-              }>
-                <Icon name="log-in" />
-              </Button>
+              <Body>
+                <Button onPress={
+                  () => {
+                    props.navigation.navigate('Login');
+                  }
+                }>
+                  <Icon name="log-in" />
+                </Button>
+              </Body>
             </CardItem>
           </Card>
         }
