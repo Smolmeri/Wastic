@@ -1,28 +1,30 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import AImage from '../components/AsyncImage';
-import { Container, Content, Text, Card, CardItem, H2, Body, Button } from 'native-base';
+import { Container, Content, Text, Card, CardItem, H2, Body, Button, Badge } from 'native-base';
 import mediaAPI from '../hooks/ApiHooks';
 import { AsyncStorage } from 'react-native';
+import { setPlaneDetection } from 'expo/build/AR';
 
 const Single = (props) => {
-     const getToken = async () => {
+    const getToken = async () => {
         const userToken = await AsyncStorage.getItem('userToken');
         console.log('Get Token', userToken);
         if (!userToken) {
             props.navigation.navigate('Login');
             console.log('Login here');
         } else {
-            props.navigation.navigate('Reserved', { file: file  });
+            props.navigation.navigate('Reserved', { file: file });
             console.log('Reserved here');
         };
         console.log('getToken Here')
     };
-    
+
 
     const { navigation } = props;
     console.log('Singel navi', navigation.state);
     const file = navigation.state.params.file;
+    console.log(file, 'TAG TIEDOT');
     const { getUserInfo } = mediaAPI();
     return (
         <Container>
@@ -49,6 +51,11 @@ const Single = (props) => {
                     </CardItem>
                     <CardItem>
                         <Text>{file.description}</Text>
+                    </CardItem>
+                    <CardItem>
+                        <Badge success>
+                            <Text>{getUserInfo(file.tag)[1]}</Text>
+                        </Badge>
                     </CardItem>
                 </Card>
                 <Button onPress={getToken}>

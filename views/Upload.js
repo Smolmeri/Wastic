@@ -16,6 +16,7 @@ const Upload = (props) => {
     inputs,
     handleTitleChange,
     handleDescriptionChange,
+    handleTagChange,
     handleUpload,
     resetForm,
   } = useUploadForm();
@@ -73,6 +74,11 @@ const Upload = (props) => {
           value={inputs.description}
           placeholder='description'
           onChangeText={handleDescriptionChange}
+        />
+        <FormTextInput
+          value={inputs.tags}
+          placeholder="Vegetarian"
+          onChangeText={handleTagChange}
         />
         <Button block
           onPress={pickImage}

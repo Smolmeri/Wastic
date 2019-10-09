@@ -206,7 +206,7 @@ const mediaAPI = () => {
     });
   };
 
-  const getTags = async (id) => {
+  const getTags = async (id, tag) => {
     console.log('Tags Func Here',id)
     const userToken = await AsyncStorage.getItem('userToken');
     console.log('Valid Token', userToken);
@@ -218,13 +218,33 @@ const mediaAPI = () => {
       },
       body:JSON.stringify( {
         "file_id": id,
-        "tag": "wastic",
+        "tag": "wastic", 
       } )
     });
     let json = await response.text();
     console.log('Solution here ', json);
     return json;
   };
+
+const appendTag = async (id, tags) => {
+  console.log('Tags Func Here',id)
+  const userToken = await AsyncStorage.getItem('userToken');
+  console.log('Valid Token', userToken);
+  const response = await fetch(apiUrl + 'tags/', {
+    method: 'POST',
+    headers: {
+      'x-access-token': userToken,
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify( {
+      "file_id": id,
+      "tag": tags,
+    } )
+  });
+  let json = await response.text();
+  console.log('Solution here ', json);
+  return json;
+};
 
   return {
     getAllMedia,
@@ -240,6 +260,7 @@ const mediaAPI = () => {
     getAllMyMedia,
     deleteMedia,
     getTags,
+    appendTag,
   };
 };
 
