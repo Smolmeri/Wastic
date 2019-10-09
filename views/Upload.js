@@ -111,7 +111,7 @@ const Upload = (props) => {
           </Form>
           }
         </Content>
-      </Container>
+      // </Container>
 
   );
 };
