@@ -31,18 +31,21 @@ const SideBar = (props) => {
             <Content>
                 <Card>
                     <CardItem>
-                        <Button onPress={getToken}>
+                        <Button transparent onPress={getToken}>
                             <Text>My Uploads</Text>
+                            <Icon name="arrow-forward" />
                         </Button>
                     </CardItem>
                     <CardItem>
-                        <Button onPress={getToken}>
+                        <Button transparent  onPress={getToken}>
                             <Text>Profile</Text>
+                            <Icon name="arrow-forward" />
                         </Button>
                     </CardItem>
                     <CardItem>
-                        <Button onPress={signOutAsync}>
+                        <Button transparent  onPress={signOutAsync}>
                             <Text>Logout</Text>
+                            <Icon name="arrow-forward" />
                         </Button>
                     </CardItem>
                 </Card>
