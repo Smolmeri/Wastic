@@ -82,9 +82,9 @@ const Profile = (props) => {
               }>
                 <Icon name="log-in" />
               </Button>
-          </CardItem>
-        </Card>
-      }
+            </CardItem>
+          </Card>
+        }
       </Content>
     </Container >
   );

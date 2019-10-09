@@ -1,13 +1,14 @@
-import React, {useState, useEffect} from 'react';
-import {Image} from 'react-native';
-import {Form, Button, Text, Content, Spinner} from 'native-base';
+import React, { useState, useEffect } from 'react';
+import { Image } from 'react-native';
+import { Form, Button, Text, Content, Spinner, Container } from 'native-base';
 import FormTextInput from '../components/FormTextInput';
 import PropTypes from 'prop-types';
 import useUploadForm from '../hooks/UploadHooks';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
-import {Video} from 'expo-av';
+import { Video } from 'expo-av';
+import SideBar from '../components/SideBar';
 
 const Upload = (props) => {
   const [file, setFile] = useState({});
@@ -21,9 +22,16 @@ const Upload = (props) => {
     resetForm,
   } = useUploadForm();
 
+  closeSideBar = () => {
+    this._drawer._root.close()
+  };
+  openSideBar = () => {
+    this._drawer._root.open()
+  };
+
   const getPermissionAsync = async () => {
     if (Constants.platform.ios) {
-      const {status} = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
       if (status !== 'granted') {
         alert('Sorry, we need camera roll permissions to make this work!');
       }
@@ -49,6 +57,7 @@ const Upload = (props) => {
   }, []);
 
   return (
+
     <Content>
       {file.type === 'image' &&
         <Image
@@ -94,15 +103,15 @@ const Upload = (props) => {
           <Text>Upload file</Text>
         </Button>
         }
-
-        <Button block
-          onPress={() => resetForm(setFile)}
-        >
-          <Text>Reset</Text>
-        </Button>
-      </Form>
-      }
-    </Content>
+            <Button block
+              onPress={() => resetForm(setFile)}
+            >
+              <Text>Reset</Text>
+            </Button>
+          </Form>
+          }
+        </Content>
+      </Container>
 
   );
 };

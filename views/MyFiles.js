@@ -2,11 +2,12 @@
 import React from 'react';
 import MyFilesList from '../components/MyFilesList';
 import PropTypes from 'prop-types';
-import {Container, Content} from 'native-base';
+import { Container, Content } from 'native-base';
 
 
 const MyFiles = (props) => {
-  const {navigation} = props;
+  const { navigation } = props;
+ 
   return (
     <Container>
       <Content>

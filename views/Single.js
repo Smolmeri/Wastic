@@ -21,6 +21,7 @@ const Single = (props) => {
     };
 
 
+
     const { navigation } = props;
     console.log('Singel navi', navigation.state);
     const file = navigation.state.params.file;
