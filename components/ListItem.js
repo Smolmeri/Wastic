@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Text, Thumbnail, ListItem as BaseListItem, Left, Body, Right, Icon, Button } from 'native-base';
 
-const getThumbnail = (url) => {
+const getThumbnail = (file_id) => {
   const [thumbnails, setThumbnails] = useState({});
   async function fetchUrl() {
-    const response = await fetch('http://media.mw.metropolia.fi/wbma/media/' + url);
+    const response = await fetch('http://media.mw.metropolia.fi/wbma/media/' + file_id);
     const json = await response.json();
     setThumbnails(json.thumbnails);
   }
@@ -15,13 +15,37 @@ const getThumbnail = (url) => {
   return thumbnails;
 };
 
+const getTags = (tag) => {
+  const [tags, setTags] = useState({});
+  async function fetchUrl() {
+    const response = await fetch('http://media.mw.metropolia.fi/wbma/tags/file/' + tag);
+    const json = await response.json();
+    setTags(json);
+  }
+  useEffect(() => {
+    fetchUrl();
+  }, []);
+  return tags;
+};
+
 const ListItem = (props) => {
+  const tg = getTags(props.singleMedia.file_id);
   const tn = getThumbnail(props.singleMedia.file_id);
+  console.log('Vittu');
+  try {
+    console.log(tg[0].tag);
+  } catch {
+    console.log('error vittu');
+  }
+
+
+ 
+  console.log(tg.tag);
   return (
     <BaseListItem thumbnail
       onPress={
         () => {
-          props.navigation.navigate('Single', { file: props.singleMedia });
+          props.navigation.navigate('Single', { file: props.singleMedia, tag: tg });
           console.log('what is happening');
         }
       }

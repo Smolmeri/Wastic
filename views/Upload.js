@@ -8,7 +8,6 @@ import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import { Video } from 'expo-av';
-import SideBar from '../components/SideBar';
 
 const Upload = (props) => {
   const [file, setFile] = useState({});
@@ -61,14 +60,14 @@ const Upload = (props) => {
     <Content>
       {file.type === 'image' &&
         <Image
-          source={{uri: file.uri}}
-          style={{width: 200, height: 200}}
+          source={{ uri: file.uri }}
+          style={{ width: 200, height: 200 }}
         />
       }
       {file.type === 'video' &&
         <Video
-          source={{uri: file.uri}}
-          style={{width: 200, height: 200}}
+          source={{ uri: file.uri }}
+          style={{ width: 200, height: 200 }}
           useNativeControls={true}
         />
       }
@@ -89,32 +88,37 @@ const Upload = (props) => {
           placeholder="Vegetarian"
           onChangeText={handleTagChange}
         />
+
         <Button block
           onPress={pickImage}
         >
           <Text>Choose file</Text>
         </Button>
+
         {file.uri && inputs.title.length > 3 && (inputs.description.length == 0 || inputs.description.length > 5) &&
-        <Button block
-          onPress={() => {
-            handleUpload(file, setLoading, props.navigation);
-          }}
-        >
-          <Text>Upload file</Text>
-        </Button>
+          <Button block
+            onPress={() => {
+              handleUpload(file, setLoading, props.navigation);
+            }}
+          >
+            <Text>Upload file</Text>
+          </Button>
         }
-            <Button block
-              onPress={() => resetForm(setFile)}
-            >
-              <Text>Reset</Text>
-            </Button>
-          </Form>
-          }
-        </Content>
-      // </Container>
+
+        <Button block
+          onPress={() => resetForm(setFile)}
+        >
+          <Text>Reset</Text>
+        </Button>
+      </Form>
+      }
+    </Content>
+    // </Container>
 
   );
 };
+
+
 
 Upload.propTypes = {
   navigation: PropTypes.object,

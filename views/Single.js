@@ -25,7 +25,8 @@ const Single = (props) => {
     const { navigation } = props;
     console.log('Singel navi', navigation.state);
     const file = navigation.state.params.file;
-    console.log(file, 'TAG TIEDOT');
+    const tag = navigation.state.params.tag;
+    console.log(tag, 'TAG TIEDOT');
     const { getUserInfo } = mediaAPI();
     return (
         <Container>
@@ -55,7 +56,7 @@ const Single = (props) => {
                     </CardItem>
                     <CardItem>
                         <Badge success>
-                            <Text>{getUserInfo(file.tag)[1]}</Text>
+                            <Text>{tag[1].tag}</Text>
                         </Badge>
                     </CardItem>
                 </Card>

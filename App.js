@@ -36,7 +36,7 @@ const App = () => {
   return (
     <Drawer
       ref={(ref) => { this._drawer = ref; }}
-      content={<SideBar navigator={this._navigator} />}
+      content={<SideBar navigation={this._navigator} />}
       onClose={() => closeSideBar()} >
       <Header>
         <Left>

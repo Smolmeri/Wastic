@@ -57,8 +57,8 @@ const useUploadForm = () => {
       console.log('First element', response.file_id);
       // reset media because silly refresh problems
       setTimeout(() => {
-        getTags(response.file_id, inputs.tags);
-      }, 2000);
+        getTags(response.file_id);
+      }, 1000);
       setTimeout(() => {
         appendTag(response.file_id, inputs.tags);
       }, 2000);

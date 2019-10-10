@@ -51,7 +51,7 @@ const Reserved = (props) => {
                     </CardItem>
                 </Card>
                 <Button>
-                    <Text>Cancel</Text>
+                    <Text>Send Message</Text>
                 </Button>
             </Content>
         </Container>
