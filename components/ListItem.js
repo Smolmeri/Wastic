@@ -31,16 +31,6 @@ const getTags = (tag) => {
 const ListItem = (props) => {
   const tg = getTags(props.singleMedia.file_id);
   const tn = getThumbnail(props.singleMedia.file_id);
-  console.log('Vittu');
-  try {
-    console.log(tg[0].tag);
-  } catch {
-    console.log('error vittu');
-  }
-
-
- 
-  console.log(tg.tag);
   return (
     <BaseListItem thumbnail
       onPress={
