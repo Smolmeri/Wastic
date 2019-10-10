@@ -226,10 +226,11 @@ const mediaAPI = () => {
     return json;
   };
 
-const appendTag = async (id, tags) => {
+const appendTag = async (id, tagz) => {
   console.log('Tags Func Here',id)
   const userToken = await AsyncStorage.getItem('userToken');
   console.log('Valid Token', userToken);
+  const tags = tagz.toLowerCase();
   const response = await fetch(apiUrl + 'tags/', {
     method: 'POST',
     headers: {
