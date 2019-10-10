@@ -26,18 +26,18 @@ const App = () => {
   if (!isReady) {
     return <AppLoading />;
   }
-  closeSideBar = () => {
-    this._drawer._root.close()
-  };
-  openSideBar = () => {
-    this._drawer._root.open()
-  };
+  // closeSideBar = () => {
+  //   this._drawer._root.close()
+  // };
+  // openSideBar = () => {
+  //   this._drawer._root.open()
+  // };
 
   return (
-    <Drawer
-      ref={(ref) => { this._drawer = ref; }}
-      content={<SideBar navigation={this._navigator} />}
-      onClose={() => closeSideBar()} >
+    // <Drawer
+    //   ref={(ref) => { this._drawer = ref; }}
+    //   content={<SideBar navigation={this._navigator} />}
+    //   onClose={() => closeSideBar()} >
       <Header>
         <Left>
           <Button transparent onPress={() => openSideBar()} >
@@ -58,7 +58,7 @@ const App = () => {
       <MediaProvider>
         <Navigator />
       </MediaProvider>
-    </Drawer>
+    // </Drawer>
 
   );
 };
