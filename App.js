@@ -8,6 +8,7 @@ import { AppLoading } from 'expo';
 import { Drawer, Header, Body, Title, Right, Button, Icon, Left } from 'native-base';
 import SideBar from './components/SideBar';
 
+console.disableYellowBox = true;
 
 const App = () => {
   const [isReady, setIsReady] = useState(false);

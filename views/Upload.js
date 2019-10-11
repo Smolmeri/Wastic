@@ -91,14 +91,17 @@ const Upload = (props) => {
 
         <Button block
           onPress={pickImage}
+          style={{backgroundColor: '#829A20'}}
         >
           <Text>Choose file</Text>
         </Button>
 
         {file.uri && inputs.title.length > 3 && (inputs.description.length == 0 || inputs.description.length > 5) &&
           <Button block
+            style={{backgroundColor: '#829A20'}}
             onPress={() => {
               handleUpload(file, setLoading, props.navigation);
+
             }}
           >
             <Text>Upload file</Text>
@@ -106,6 +109,7 @@ const Upload = (props) => {
         }
 
         <Button block
+          style={{backgroundColor: '#829A20'}}
           onPress={() => resetForm(setFile)}
         >
           <Text>Reset</Text>
