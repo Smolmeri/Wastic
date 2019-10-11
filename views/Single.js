@@ -63,7 +63,8 @@ const Single = (props) => {
                 <Button style={{
                     flexDirection: 'row',
                     justifyContent: 'center',
-                    backgroundColor: '#829A20'
+                    backgroundColor: '#829A20',
+                    margin: 20,
                 }} onPress={getToken}>
                     <Text>Reserve</Text>
                 </Button>

@@ -53,7 +53,8 @@ const Reserved = (props) => {
                 <Button style={{
                     flexDirection: 'row',
                     justifyContent: 'center',
-                    backgroundColor: '#829A20'
+                    backgroundColor: '#829A20',
+                    margin: 20,
                 }}>
                     <Text>Send Message</Text>
                 </Button>

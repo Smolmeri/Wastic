@@ -43,19 +43,36 @@ const StackNavigator = createStackNavigator(
             screen: TabNavigator,
             navigationOptions: {
                 header: null,
+            
             },
+            
         },
         Single: {
             screen: Single,
+            navigationOptions: {
+                header: null,
+            },
         },
         Login: {
             screen: Login,
+            navigationOptions: {
+                header: null,
+            
+            },
         },
         MyFiles: {
             screen: MyFiles,
+            navigationOptions: {
+                header: null,
+            
+            },
         },
         Reserved: {
             screen: Reserved,
+            navigationOptions: {
+                header: null,
+            
+            },
         },
     },
 );

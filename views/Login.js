@@ -17,6 +17,7 @@ import PropTypes from 'prop-types';
 import FormTextInput from '../components/FormTextInput';
 import mediaAPI from '../hooks/ApiHooks';
 import Constants from 'expo-constants';
+import { Image } from 'react-native';
 
 const Login = (props) => {
     const [formToggle, setFormToggle] = useState(true);
@@ -36,16 +37,19 @@ const Login = (props) => {
 
     const { signInAsync, registerAsync } = mediaAPI();
     return (
-        <Container style={{ paddingTop: Constants.statusBarHeight }}>
-            <Header>
-                <Body>
-                    <Title>Wastic</Title>
-                </Body>
-            </Header>
+        <Container>
+            <Image source={require('../assets/splash.png')} style={{
+                width: 200,
+                height: 100,
+
+            }} />
             {formToggle &&
                 <Content>
                     <Form>
-                        <Text>Login</Text>
+                        <Text style={{
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                        }}>Login</Text>
 
                         {/* <FormItem floatingLabel> */}
                         <FormTextInput
@@ -66,7 +70,13 @@ const Login = (props) => {
                         />
                         {/* </FormItem> */}
 
-                        <Button
+                        <Button style={{
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            backgroundColor: '#829A20',
+                            margin: 20,
+                            
+                        }}
                             onPress={() => {
                                 signInAsync(inputs, props);
                             }}>
@@ -75,7 +85,12 @@ const Login = (props) => {
 
                         <Text>sign up here</Text>
 
-                        <Button
+                        <Button style={{
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            backgroundColor: '#829A20',
+                            margin: 20,
+                        }}
                             onPress={() => {
                                 setFormToggle(false);
                             }}>
@@ -124,7 +139,11 @@ const Login = (props) => {
                             placeholder='fullname'
                             onChangeText={handleFullnameChange}
                         />
-                        <Button
+                        <Button style={{
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            backgroundColor: '#829A20'
+                        }}
                             onPress={() => {
                                 if (validateOnSend()) {
                                     registerAsync(inputs, props);
@@ -135,7 +154,11 @@ const Login = (props) => {
 
                         <Text>or</Text>
 
-                        <Button
+                        <Button style={{
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            backgroundColor: '#829A20'
+                        }}
                             onPress={() => {
                                 setFormToggle(true);
                             }}>

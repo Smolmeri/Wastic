@@ -42,11 +42,18 @@ const App = () => {
     <Container>
       <Header style={{
         backgroundColor: '#829A20',
-        color: '#000',
+        
         justifyContent: 'center',
       }}>  
+      <Left>
+        <Icon style={{
+          backgroundColor: '#829A20',
+        }} />
+      </Left>
         <Body>
-          <Title>Wastic</Title>
+          <Title style={{
+            color: 'white'
+          }}>Wastic</Title>
         </Body>
         <Right>
           <Button 
@@ -57,7 +64,9 @@ const App = () => {
             onPress={() => {
             alert("I'm not functional! Please help!")
             }}>
-            <Icon name="search" />
+            <Icon style={{
+              color: 'white',
+            }} name="search" />
           </Button>
         </Right>
       </Header>
