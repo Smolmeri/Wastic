@@ -49,7 +49,7 @@ const ListItem = (props) => {
       </Body>
       <Right>
         <Button transparent>
-          <Icon style={{ opacity: 40, color: 'blue' }} name='arrow-forward' />
+          <Icon style={{ opacity: 40, color: '#829A20' }} name='arrow-forward' />
         </Button>
       </Right>
     </BaseListItem>

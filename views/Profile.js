@@ -27,7 +27,7 @@ const Profile = (props) => {
     props.navigation.navigate('Auth');
   };
   return (
-    <Container>
+  <Container>
       <Content>
         {user &&
           <Card>
@@ -55,13 +55,13 @@ const Profile = (props) => {
             </CardItem>
             <CardItem>
               <Body>
-                <Button onPress={signOutAsync}>
+                <Button style={{backgroundColor: '#829A20'}} onPress={signOutAsync}>
                   <Text>Sign out</Text>
                   <Icon name="log-out" />
                 </Button>
               </Body>
               <Body>
-                <Button onPress={
+                <Button style={{backgroundColor: '#829A20'}}  onPress={
                   () => {
                     props.navigation.navigate('MyFiles');
                   }
@@ -80,7 +80,7 @@ const Profile = (props) => {
             </CardItem>
             <CardItem>
               <Body>
-                <Button onPress={
+                <Button  style={{backgroundColor: '#829A20'}} onPress={
                   () => {
                     props.navigation.navigate('Login');
                   }
