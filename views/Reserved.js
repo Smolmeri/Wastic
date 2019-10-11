@@ -50,7 +50,10 @@ const Reserved = (props) => {
                         <Text>Contact: {getUserInfo(file.user_id).email} </Text>
                     </CardItem>
                 </Card>
-                <Button>
+                <Button style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                }}>
                     <Text>Send Message</Text>
                 </Button>
             </Content>

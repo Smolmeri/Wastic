@@ -60,7 +60,10 @@ const Single = (props) => {
                         </Badge>
                     </CardItem>
                 </Card>
-                <Button onPress={getToken}>
+                <Button style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                }} onPress={getToken}>
                     <Text>Reserve</Text>
                 </Button>
             </Content>

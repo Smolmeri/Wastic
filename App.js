@@ -5,7 +5,7 @@ import Navigator from './navigators/Navigator';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { AppLoading } from 'expo';
-import { Drawer, Header, Body, Title, Right, Button, Icon, Left } from 'native-base';
+import { Drawer, Header, Body, Title, Right, Button, Icon, Left, Container } from 'native-base';
 import SideBar from './components/SideBar';
 
 
@@ -38,19 +38,24 @@ const App = () => {
     //   ref={(ref) => { this._drawer = ref; }}
     //   content={<SideBar navigation={this._navigator} />}
     //   onClose={() => closeSideBar()} >
-      <Header>
-        <Left>
-          <Button transparent onPress={() => openSideBar()} >
-            <Icon name="menu" />
-          </Button>
-        </Left>
+    <Container>
+      <Header style={{
+        backgroundColor: '#829A20',
+        color: '#000',
+        justifyContent: 'center',
+      }}>  
         <Body>
           <Title>Wastic</Title>
         </Body>
         <Right>
-          <Button transparent onPress={() => {
+          <Button 
+            style={{
+            color: '#00000',
+            }} 
+            transparent 
+            onPress={() => {
             alert("I'm not functional! Please help!")
-          }}>
+            }}>
             <Icon name="search" />
           </Button>
         </Right>
@@ -58,7 +63,7 @@ const App = () => {
       <MediaProvider>
         <Navigator />
       </MediaProvider>
-    // </Drawer>
+      </Container>
 
   );
 };
