@@ -38,11 +38,16 @@ const Login = (props) => {
     const { signInAsync, registerAsync } = mediaAPI();
     return (
         <Container>
+            <Header style={{
+                height: 200,
+                flexDirection: 'row',
+                justifyContent: 'center',
+            }}>
             <Image source={require('../assets/splash.png')} style={{
-                width: 200,
-                height: 100,
-
+                width: '100%',
+                height: 200,
             }} />
+            </Header>
             {formToggle &&
                 <Content>
                     <Form>
