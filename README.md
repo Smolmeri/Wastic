@@ -13,4 +13,4 @@ Scan QR code using Tunnel mode.
 
 Enjoy!
 
-Authors Tuomas Paavolainen, Oskari Sieranen, Otto Söderlund
+Authors [Tuomas Paavolainen](https://github.com/Smolmeri), [Oskari Sieranen](https://github.com/oskarits), [Otto Söderlund](https://github.com/ottosoderlund)
