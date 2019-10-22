@@ -12,3 +12,5 @@ Expo opens new tab in default browser.
 Scan QR code using Tunnel mode. 
 
 Enjoy!
+
+\\Authors Tuomas Paavolainen, Oskari Sieranen, Otto Söderlund
